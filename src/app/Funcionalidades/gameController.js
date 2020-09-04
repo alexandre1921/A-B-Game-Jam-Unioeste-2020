@@ -1,4 +1,4 @@
-export default class keyController {
+export default class gameController {
   constructor(
     canvas,
     movimento,
@@ -8,7 +8,7 @@ export default class keyController {
     showMenu,
     frameH
   ) {
-    this.movimentar(movimento, direcao, personagem);
+    this.movimentar(movimento, direcao, personagem, frameH);
     this.menu(canvas, menuSrc, showMenu);
   }
   movimentar(movimento, direcao, personagem, frameH) {
@@ -34,7 +34,7 @@ export default class keyController {
       personagem.andar();
     });
   }
-  menu(canvas, menuSrc, showMenu) {
+  menu(canvas) {
     canvas.addEventListener("mousemove", (e) => {
       //canto superior esquerdo
       //canto superior direito
@@ -46,9 +46,7 @@ export default class keyController {
         e.clientX > 335 &&
         e.clientX < 1002
       ) {
-        menuSrc = "../assets/menuActive.png";
       } else {
-        menuSrc = "../assets/menu.png";
       }
       //   console.log(e.clientY, e.clientX);
     });
@@ -63,7 +61,6 @@ export default class keyController {
         e.clientX > 367 &&
         e.clientX < 1046
       ) {
-        showMenu = false;
       }
     });
   }
