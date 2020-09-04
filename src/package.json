@@ -1,0 +1,19 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "views/main.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "window": {
+    "title": "Breakout",
+    "icon": "assets/icon.png",
+    "toolbar": true,
+    "resizable": true,
+    "position": "mouse"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
