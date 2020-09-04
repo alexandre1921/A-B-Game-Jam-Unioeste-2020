@@ -10,7 +10,12 @@
     "title": "Breakout",
     "icon": "assets/icon.png",
     "toolbar": true,
-    "resizable": true,
+    "width": 1280,
+    "height": 720,
+    "min_width": 1280,
+    "min_height": 720,
+    "max_width": 1280,
+    "max_height": 720,
     "position": "mouse"
   },
   "keywords": [],
