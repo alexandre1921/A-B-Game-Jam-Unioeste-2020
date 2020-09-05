@@ -36,6 +36,8 @@ export default class gameController {
   }
   menu(canvas) {
     canvas.addEventListener("mousemove", (e) => {
+      // ao mover o mouse faça
+      // temos acesso ao y e x coordenadas do mouse
       //canto superior esquerdo
       //canto superior direito
       //canto inferior esquerdo
@@ -51,6 +53,8 @@ export default class gameController {
       //   console.log(e.clientY, e.clientX);
     });
     canvas.addEventListener("click", (e) => {
+      // ao clickar faça
+      // temos acesso ao y e x coordenadas do mouse
       //canto superior esquerdo
       //canto superior direito
       //canto inferior esquerdo

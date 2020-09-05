@@ -30,21 +30,25 @@ export default {
       this.frameH,
       this.posX,
       this.posY,
+      // uso * 0.5 pra aumentar a altura e largura proporcionalmente, assim não fica achatada a imagem, só é necessário pois a imagem está do tamanho errado
       this.frameW + this.frameW * 0.5,
       this.frameH + this.frameH * 0.5
     );
   },
   andar: function () {
+    // uso isso pra limitar a velocidade com que o rato muda de frame, mais ticks mais devagar
     if (this.currentTick >= this.ticks) {
-      this.currentTick = 0;
-      this.coluna +=
+      this.currentTick = 0; // inicalizo a contagem de ticks
+      this.coluna += // pro proximo frame
         this.coluna == this.spriteW - this.frameW
           ? -(this.spriteW - this.frameW)
           : this.frameW;
     } else {
-      this.currentTick++;
+      this.currentTick++; // incremento o tick
     }
   },
+
+  // vai ser implementado ainda a movimentação do rato
   // eventListener: function (atualizar) {
   //   window.addEventListener("keydown", (evt) => {
   //     switch (evt.keyCode) {
