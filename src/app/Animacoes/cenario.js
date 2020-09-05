@@ -17,11 +17,12 @@ export default {
   posX: 0, // coordenada X onde colocar imagem
   posY: 0, // coordenada Y onde colocar imagem
   desenhar: function (ctx) {
+    this.posVer += 5;
     ctx.drawImage(
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
         let imagem = new Image();
-        imagem.src = "../assets/backgroundMenu.png";
+        imagem.src = "../assets/img/teste.png";
         return imagem;
       })(),
       this.posVer,

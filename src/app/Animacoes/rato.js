@@ -22,6 +22,8 @@ export default {
   alturaPulo: 150,
   forcaPulo: 15,
   gravidade,
+  mouseX: 0,
+  mouseY: 0,
   desenhar: function (ctx) {
     if (this.pulando == true) {
       this.posY -= this.forcaPulo;
@@ -34,7 +36,7 @@ export default {
     ctx.drawImage(
       (() => {
         let imagem = new Image();
-        imagem.src = "../assets/ratoCorrendo.png";
+        imagem.src = "../assets/img/ratoCorrendo.png";
         return imagem;
       })(),
       this.coluna,
@@ -66,11 +68,22 @@ export default {
     window.addEventListener("keydown", (evt) => {
       switch (evt.keyCode) {
         case 32 /*seta para esquerda*/:
-          if (this.posY >= this.chao)
-            this.pulando = true;
+          if (this.posY >= this.chao) this.pulando = true;
           break;
       }
       console.log(evt.keyCode);
     });
+    window.addEventListener("mousemove", function (e) {
+      // ao mover o mouse faça
+      // temos acesso ao y e x coordenadas do mouse
+      this.mouseX = e.clientX;
+      this.mouseY = e.clientY;
+      //   console.log(e.clientY, e.clientX);
+    });
+    window.addEventListener("click", (e) => {
+      // ao clickar faça
+      // temos acesso ao y e x coordenadas do mouse
+    });
+    return { mouseX, mouseY };
   },
 };
