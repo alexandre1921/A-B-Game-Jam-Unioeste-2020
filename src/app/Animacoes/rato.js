@@ -1,3 +1,4 @@
+import { gravidade } from "../Funcionalidades/TheWorld.js";
 export default {
   movimento: {
     esquerda: 1,
@@ -16,8 +17,20 @@ export default {
   posY: 600,
   currentTick: 0,
   ticks: 8,
-
+  pulando: false,
+  chao: 600,
+  alturaPulo: 150,
+  forcaPulo: 15,
+  gravidade,
   desenhar: function (ctx) {
+    if (this.pulando == true) {
+      this.posY -= this.forcaPulo;
+      if (this.posY <= this.chao - this.alturaPulo) {
+        this.pulando = false;
+      }
+    } else if (this.posY < this.chao) {
+      this.posY += this.gravidade;
+    }
     ctx.drawImage(
       (() => {
         let imagem = new Image();
@@ -49,27 +62,15 @@ export default {
   },
 
   // vai ser implementado ainda a movimentação do rato
-  // eventListener: function (atualizar) {
-  //   window.addEventListener("keydown", (evt) => {
-  //     switch (evt.keyCode) {
-  //       case 37 /*seta para esquerda*/:
-  //         this.direcao = this.movimento.esquerda;
-  //         this.linha = this.frameH * 2;
-  //         break;
-  //       case 38 /*seta para cima*/:
-  //         this.direcao = this.movimento.sobe;
-  //         this.linha = this.frameH;
-  //         break;
-  //       case 39 /*seta para direita*/:
-  //         this.direcao = this.movimento.direita;
-  //         this.linha = this.frameH * 3;
-  //         break;
-  //       case 40 /*seta para baixo*/:
-  //         this.direcao = this.movimento.desce;
-  //         this.linha = 0;
-  //         break;
-  //     }
-  //     atualizar();
-  //   });
-  // },
+  eventListener: function () {
+    window.addEventListener("keydown", (evt) => {
+      switch (evt.keyCode) {
+        case 32 /*seta para esquerda*/:
+          if (this.posY >= this.chao)
+            this.pulando = true;
+          break;
+      }
+      console.log(evt.keyCode);
+    });
+  },
 };

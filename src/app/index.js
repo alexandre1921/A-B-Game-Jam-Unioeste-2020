@@ -1,7 +1,6 @@
 // eu dividi o codigo em 2 partes
 // Animacoes que tem relacao com o personagem, rato ou cenario
 // Funcionalidades são as coisas como onde o jogador faz o click, cria o canvas e contexto e o listener para pegar qual tecla foi acionada
-
 import canvasCtx from "./Funcionalidades/canvasCtx.js";
 import mouse from "./Funcionalidades/mouse.js";
 import cenario from "./Animacoes/cenario.js";
@@ -15,7 +14,7 @@ function executar() {
   // requestAnimationFrame é responsável pela atualização dos quadros
   window.requestAnimationFrame(executar);
   // faz a animação do rato andando
-  // rato.andar();
+  rato.andar();
 }
 function desenhar() {
   // ordem de desenho cenario, personagem, rato
@@ -26,3 +25,4 @@ function desenhar() {
 executar();
 // isto é para sabermos onde o mouse está e onde clickou
 mouse.eventListener(canvas);
+rato.eventListener();
