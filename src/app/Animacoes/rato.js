@@ -55,12 +55,38 @@ export default {
     if (this.currentTick >= this.ticks) {
       this.currentTick = 0; // inicalizo a contagem de ticks
       this.coluna += // pro proximo frame
-        this.coluna == this.spriteW - this.frameW
+        this.coluna >= this.spriteW - this.frameW
           ? -(this.spriteW - this.frameW)
           : this.frameW;
     } else {
       this.currentTick++; // incremento o tick
     }
+  },
+  ratoMira: function () {
+    // desenho da trajetoria da pulga
+    ctx.beginPath();
+    ctx.moveTo(rato.posX + 150, rato.posY + 30);
+    ctx.lineTo(
+      document.getElementById("x").value,
+      document.getElementById("y").value
+    );
+    ctx.stroke();
+    // desenho da imagem
+    ctx.drawImage(
+      (() => {
+        let imagem = new Image();
+        imagem.src = "../assets/img/cross.png";
+        return imagem;
+      })(),
+      0,
+      0,
+      128,
+      128,
+      document.getElementById("x").value - 64 * 0.5,
+      document.getElementById("y").value - 64 * 0.5,
+      128 * 0.5,
+      128 * 0.5
+    );
   },
 
   // vai ser implementado ainda a movimentação do rato
@@ -73,17 +99,17 @@ export default {
       }
       console.log(evt.keyCode);
     });
+
     window.addEventListener("mousemove", function (e) {
       // ao mover o mouse faça
       // temos acesso ao y e x coordenadas do mouse
-      this.mouseX = e.clientX;
-      this.mouseY = e.clientY;
+      document.getElementById("x").value = e.clientX;
+      document.getElementById("y").value = e.clientY;
       //   console.log(e.clientY, e.clientX);
     });
     window.addEventListener("click", (e) => {
-      // ao clickar faça
-      // temos acesso ao y e x coordenadas do mouse
+      document.getElementById("xClick").value = e.clientX;
+      document.getElementById("yClick").value = e.clientY;
     });
-    return { mouseX, mouseY };
   },
 };

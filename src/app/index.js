@@ -6,7 +6,9 @@ import mouse from "./Funcionalidades/mouse.js";
 import audio from "./Funcionalidades/audio.js";
 import cenario from "./Animacoes/cenario.js";
 import rato from "./Animacoes/rato.js";
+import aldeao from "./Animacoes/aldeao.js";
 audio();
+
 // criando canvas e o contexto
 let { canvas, ctx } = canvasCtx();
 function executar() {
@@ -20,11 +22,8 @@ function executar() {
 function desenhar() {
   // ordem de desenho cenario, personagem, rato
   cenario.desenhar(ctx);
-  // ctx.beginPath();
-  // ctx.moveTo(rato.posX + 150, rato.posY + 30);
-  // ctx.lineTo(mouseX, mouseY);
-  // ctx.stroke();
   rato.desenhar(ctx);
+  aldeao.desenhar(ctx, 600, 510);
 }
 // executar roda a primeira função que vai chamar outras funçoes e vai pedir a requestAnimationFrame
 executar();

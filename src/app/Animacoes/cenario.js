@@ -8,7 +8,7 @@ export default {
     // é desenhado uma forma apartir dessas coordenadas, cada coordenada dessa é um ponto da forma geométrica
     ctx.fillRect(0, 0, 1280, 720);
   },
-  Width: 1280, // largura da imagem
+  Width: 12800, // largura da imagem
   Height: 720, // altura da imagem
   sceneW: 1280, // largura do que nos queremos mostra(ou seja tamanho da tela)
   sceneH: 720, // largura do que nos queremos
@@ -16,8 +16,10 @@ export default {
   posHor: 0, // pos horizontal onde começa a ser mostrado
   posX: 0, // coordenada X onde colocar imagem
   posY: 0, // coordenada Y onde colocar imagem
+  velocity: 5,
   desenhar: function (ctx) {
-    this.posVer += 5;
+    if (this.posVer < this.Width - this.velocity - this.sceneW)
+      this.posVer += this.velocity;
     ctx.drawImage(
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
