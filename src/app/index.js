@@ -7,10 +7,10 @@ import mouse from "./Funcionalidades/mouse.js";
 import cenario from "./Animacoes/cenario.js";
 import rato from "./Animacoes/rato.js";
 
-const closeBtn = document.getElementById('start-btn');
-const rules = document.getElementById('rules');
-const sound = document.getElementById('sound-on');
-const soundOff = document.getElementById('sound-off');
+const closeBtn = document.getElementById("start-btn");
+const rules = document.getElementById("rules");
+const sound = document.getElementById("sound-on");
+const soundOff = document.getElementById("sound-off");
 
 // criando canvas e o contexto
 let { canvas, ctx } = canvasCtx();
@@ -32,5 +32,5 @@ executar();
 // isto é para sabermos onde o mouse está e onde clickou
 mouse.eventListener(canvas);
 
-closeBtn.addEventListener('click', () => rules.classList.remove('show'));
-sound.addEventListener('click', () => soundOff.classList.replace());
+closeBtn.addEventListener("click", () => rules.classList.add("hidden"));
+sound.addEventListener("click", () => soundOff.classList.replace());
