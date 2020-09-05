@@ -7,6 +7,9 @@ import mouse from "./Funcionalidades/mouse.js";
 import cenario from "./Animacoes/cenario.js";
 import rato from "./Animacoes/rato.js";
 
+const closeBtn = document.getElementById('start-btn');
+const rules = document.getElementById('rules');
+
 // criando canvas e o contexto
 let { canvas, ctx } = canvasCtx();
 function executar() {
@@ -26,3 +29,4 @@ function desenhar() {
 executar();
 // isto é para sabermos onde o mouse está e onde clickou
 mouse.eventListener(canvas);
+closeBtn.addEventListener('click', () => rules.classList.remove('show'));
