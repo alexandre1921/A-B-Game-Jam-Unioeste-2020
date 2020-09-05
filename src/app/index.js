@@ -31,6 +31,6 @@ function desenhar() {
 executar();
 // isto é para sabermos onde o mouse está e onde clickou
 mouse.eventListener(canvas);
-// closeBtn.addEventListener('click', () => rules.classList.add('show'));
+
 closeBtn.addEventListener('click', () => rules.classList.remove('show'));
 sound.addEventListener('click', () => soundOff.classList.replace());
