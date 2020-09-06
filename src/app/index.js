@@ -10,6 +10,12 @@ import rato from "./Animacoes/rato.js";
 import { fabricaAldeao } from "./Animacoes/fabricaAldeao.js";
 audio();
 
+const closeBtn = document.getElementById("start-btn");
+const menu = document.getElementById("menu");
+const sound = document.getElementById("sound-on");
+const soundOff = document.getElementById("sound-off");
+const pauseBtn = document.getElementById("pause");
+
 // criando canvas e o contexto
 let { canvas, ctx } = canvasCtx();
 function executar() {
@@ -40,3 +46,8 @@ executar();
 // isto é para sabermos onde o mouse está e onde clickou
 mouse.eventListener(canvas);
 rato.eventListener(aldeaos);
+
+closeBtn.addEventListener("click", () => menu.classList.add("hidden"));
+sound.addEventListener("click", () => sound.classList.replace("soundOff"));
+pauseBtn.addEventListener("click", () => menu.classList.add("show"));
+closeBtn.addEventListener("click", () => menu.classList.remove("show"));

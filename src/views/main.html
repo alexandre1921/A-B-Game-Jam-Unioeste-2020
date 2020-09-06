@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt0br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/menu-style.css" />
+    <link
+      rel="stylesheet"
+      href="..//styles/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
     <title>Ratatouill Evil</title>
   </head>
 
@@ -12,6 +16,21 @@
     <span id="ex"></span>
     <span id="ey"></span>
     <span id="atira"></span>
+
+    <div class="icone">
+      <i class="fa fa-volume-off" id="sound-off"></i>
+      <i class="fa fa-volume-up" id="sound-on"></i>
+    </div>
+
+    <button class="pause-btn" id="pause"></button>
+
+    <div id="menu" class="menu">
+      <div class="logo">
+        <img src="../assets/Asset 30.svg" alt="" />
+      </div>
+      <button id="start-btn" class="btn"></button>
+    </div>
+
     <script src="../app/index.js" type="module"></script>
   </body>
 </html>
