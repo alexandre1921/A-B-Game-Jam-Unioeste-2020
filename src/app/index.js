@@ -13,6 +13,9 @@ const pauseBtn = document.getElementById("pause");
 const tutorial = document.getElementById("tutorial");
 const tutorialBtn = document.getElementById("tutorial-btn");
 const tutorialClose = document.getElementById("close-btn");
+const historia = document.getElementById("historia");
+const contHistoria = document.getElementById("conteudo-historia");
+
 
 // criando canvas e o contexto
 let { canvas, ctx } = canvasCtx();
@@ -36,6 +39,8 @@ mouse.eventListener(canvas);
 
 /* esconde o menu quando clica no botão start*/
 closeBtn.addEventListener("click", () => menu.classList.add("hidden"));
+closeBtn.addEventListener("click", () => historia.classList.add("show"));
+closeBtn.addEventListener("click", () => contHistoria.classList.add("show"));
 
 /*Mostra o menu ao pausarmos o jogo*/
 pauseBtn.addEventListener("click", () => menu.classList.add("show"));
@@ -49,3 +54,4 @@ tutorialBtn.addEventListener("click", () => tutorial.classList.add("hidden"));
 tutorialClose.addEventListener("click", () => tutorial.classList.remove("hidden"));
 tutorialClose.addEventListener("click", () => menu.classList.add("show"));
 
+document.querySelector('#main > .jogo > .tutorial').remove();
