@@ -21,14 +21,13 @@ export default {
   posCW: 0,
   desenhar: function (ctx) {
     this.posCW = Math.floor(this.posVer / this.sceneW);
-    console.log(this.posCW);
     if (this.posVer < this.Width - this.mapaVelocidade - this.sceneW)
       this.posVer += this.mapaVelocidade;
     ctx.drawImage(
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
         let imagem = new Image();
-        imagem.src = "../assets/img/cena1.jpeg";
+        imagem.src = "../assets/img/cena2.jpeg";
         return imagem;
       })(),
       this.posVer - this.sceneW * (this.posCW + 1),
@@ -44,7 +43,7 @@ export default {
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
         let imagem = new Image();
-        imagem.src = "../assets/img/cena1.jpeg";
+        imagem.src = "../assets/img/cena2.jpeg";
         return imagem;
       })(),
       this.posVer - this.sceneW * this.posCW,
@@ -62,7 +61,7 @@ export default {
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
         let imagem = new Image();
-        imagem.src = "../assets/img/backgroundMenu.png";
+        imagem.src = "../assets/img/cena1.jpeg";
         return imagem;
       })(),
       0,

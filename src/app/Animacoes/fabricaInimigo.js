@@ -17,6 +17,13 @@ export const fabricaInimigo = (posX, posY) => {
     drop: false,
     currentTick: 0,
     ticks: 8,
+    audioFxM: (() => {
+      let audioFx = document.createElement("audio");
+      audioFx.src = "../assets/audio/MedicoAtacando.mp3";
+      audioFx.loop = false;
+      audioFx.volume = 0.1;
+      return audioFx;
+    })(),
     img: (() => {
       // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
       let imagem = new Image();
@@ -24,7 +31,7 @@ export const fabricaInimigo = (posX, posY) => {
       return imagem;
     })(),
     queijo: fabricaQueijo(posX, posY),
-    desenhar: function (ctx, cenario, rato) {
+    desenhar: function (ctx, cenario, rato, musicaFundo, animationFrame) {
       // uso isso pra limitar a velocidade com que o rato muda de frame, mais ticks mais devagar
       if (this.currentTick >= this.ticks) {
         this.currentTick = 0; // inicalizo a contagem de ticks
@@ -44,6 +51,26 @@ export const fabricaInimigo = (posX, posY) => {
       ) {
         this.posX -= this.mapaVelocidade + this.velocidade;
         this.queijo.posX = this.posX;
+      }
+      if (
+        this.posX - this.frameW < rato.posX &&
+        this.posX + this.frameW > rato.posX &&
+        this.posY - this.frameH * 0.2 < rato.posY &&
+        this.posY + this.frameH * 1.2 > rato.posY
+      ) {
+        rato.levaDano(musicaFundo, animationFrame);
+      }
+      if (
+        this.posX - this.frameW * 4 < rato.posX &&
+        this.posX + this.frameW * 4 > rato.posX &&
+        this.posY - this.frameH * 2 < rato.posY &&
+        this.posY + this.frameH * 2 > rato.posY
+      ) {
+        if (rato.vidas == 0) {
+          this.audioFxM.volume = 0;
+        }
+        this.audioFxM.play();
+        this.img.src = "../assets/img/medicoAtacando.png";
       }
       ctx.drawImage(
         this.img,

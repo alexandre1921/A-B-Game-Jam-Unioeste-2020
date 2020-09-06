@@ -9,7 +9,7 @@ import cenario from "./Animacoes/cenario.js";
 import rato from "./Animacoes/rato.js";
 import { fabricaAldeao } from "./Animacoes/fabricaAldeao.js";
 import { fabricaInimigo } from "./Animacoes/fabricaInimigo.js";
-audio();
+const musicaFundo = audio();
 
 const closeBtn = document.getElementById("start-btn");
 const menu = document.getElementById("menu");
@@ -36,7 +36,7 @@ function desenhar() {
   // ordem de desenho cenario, personagem, rato
   cenario.desenhar(ctx);
   for (var i = 0; i < inimigos.length; i++) {
-    inimigos[i].desenhar(ctx, cenario, rato);
+    inimigos[i].desenhar(ctx, cenario, rato, musicaFundo, animationFrame);
   }
   rato.desenhar(ctx);
   for (var i = 0; i < aldeaos.length; i++) {
@@ -108,6 +108,7 @@ tutorialClose.addEventListener("click", () => menu.classList.add("show"));
 startGame.addEventListener("click", () => {
   if (menu.disabled) animationFrame = window.requestAnimationFrame(executar);
   menu.disabled = false;
+  historia.classList.remove("show");
   historia.classList.add("hidden");
   pauseBtn.style.display = "";
   new Promise((r) => setTimeout(r, 1000));

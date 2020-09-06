@@ -15,6 +15,14 @@ export const fabricaQueijo = (posX, posY) => {
     velocidade: mapaVelocidade * 2,
     pegouY: false,
     pegouX: false,
+    comeu: false,
+    audioFxM: (() => {
+      let audioFx = document.createElement("audio");
+      audioFx.src = "../assets/audio/RatoComendo.mp3";
+      audioFx.loop = false;
+      audioFx.volume = 0.5;
+      return audioFx;
+    })(),
     img: (() => {
       // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
       let imagem = new Image();
@@ -59,6 +67,9 @@ export const fabricaQueijo = (posX, posY) => {
           this.frameW * 2,
           this.frameH * 2
         );
+      } else if (!this.comeu) {
+        this.comeu = true;
+        this.audioFxM.play();
       }
     },
   };

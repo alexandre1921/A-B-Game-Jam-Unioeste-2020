@@ -4,4 +4,5 @@ export default () => {
   music.loop = true;
   music.volume = 0.2;
   music.play();
+  return music;
 };

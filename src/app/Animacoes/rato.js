@@ -25,15 +25,37 @@ export default {
   mouseX: 0,
   mouseY: 0,
   atira: false,
+  vidas: 1,
+  img: (() => {
+    let imagem = new Image();
+    imagem.src = "../assets/img/ratoCorrendo.png";
+    return imagem;
+  })(),
   audioFx: (() => {
     let audioFx = document.querySelector("#rato-fx");
     audioFx.src = "../assets/audio/RatoAndando.mp3";
     audioFx.loop = true;
-    audioFx.volume = 0.2;
-    audioFx.play();
-    audioFx.pause();
+    audioFx.volume = 0.1;
     return audioFx;
   })(),
+  levaDano: function (musicaFundo, animationFrame) {
+    this.vidas--;
+    if (this.vidas < 1 && this.vidas == 0) {
+      cancelAnimationFrame(animationFrame);
+      this.audioFx.volume = 0;
+      this.audioFx.pause();
+      musicaFundo.pause();
+
+      this.img.src = "../assets/img/ratoMorto.png";
+      new Promise((r) => setTimeout(r, 1000));
+      historia.style.display = "";
+      historia.classList.remove("hidden");
+      historia.classList.add("show");
+      historia.addEventListener("click", () => {
+        document.location.reload(true);
+      });
+    }
+  },
   desenhar: function (ctx) {
     ctx.drawImage(
       (() => {
@@ -66,11 +88,7 @@ export default {
       }
     }
     ctx.drawImage(
-      (() => {
-        let imagem = new Image();
-        imagem.src = "../assets/img/ratoCorrendo.png";
-        return imagem;
-      })(),
+      this.img,
       this.coluna,
       this.linha,
       this.frameW,
@@ -103,7 +121,6 @@ export default {
           if (this.posY >= this.chao) {
             this.audioFx.src = "../assets/audio/PuloDeVerdade.mp3";
             this.audioFx.loop = false;
-            this.audioFx.volume = 0.2;
             this.audioFx.play();
             this.pulando = true;
           }
