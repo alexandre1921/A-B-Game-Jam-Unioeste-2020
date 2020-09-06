@@ -43,7 +43,7 @@ pauseBtn.addEventListener("click", () => menu.classList.add("show"));
 /*Volta a esconder o menu quando clicado em start novamente*/
 closeBtn.addEventListener("click", () => menu.classList.remove("show"));
 
-/**/
+/*efeito do botão tutorial para aparecer e sumir junto do menu*/
 tutorialBtn.addEventListener("click", () => menu.classList.add("hidden"));
 tutorialBtn.addEventListener("click", () => tutorial.classList.add("hidden"));
 tutorialClose.addEventListener("click", () => tutorial.classList.remove("hidden"));

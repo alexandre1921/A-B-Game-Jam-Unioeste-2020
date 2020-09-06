@@ -13,10 +13,14 @@ body {
 }
 
 /*ícone de som*/
-.icone {
+.sound-btn {
   position: absolute;
   top: 30px;
   left: 65px;
+  border: 0;
+  cursor: pointer;
+  padding: 20px;
+  background: url("../assets/Asset\ 47.svg") center no-repeat;
 }
 
 /*Logo do game*/
@@ -50,12 +54,11 @@ body {
   transform: scale(0.98);
 }
 
-
 /*Botão de pausa*/
 .pause-btn {
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 75px;
+  right: 33px;
   cursor: pointer;
   border:0;
   padding: 50px 50px;
@@ -71,7 +74,7 @@ body {
 .tutorial-btn {
   cursor: pointer;
   border:0;
-  padding: 50px 50px;
+  padding: 55px 50px;
   position: absolute;
   top: 27px;
   right: 33px;
