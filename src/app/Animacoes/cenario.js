@@ -58,7 +58,6 @@ export default {
     );
   },
   desenharMenu: function (ctx) {
-    console.log("desenhado");
     ctx.drawImage(
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem

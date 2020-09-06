@@ -19,18 +19,13 @@ export default {
   ticks: 8,
   pulando: false,
   chao: 430,
-  alturaPulo: 150,
-  forcaPulo: 15,
+  alturaPulo: 300,
+  forcaPulo: 20,
   gravidade,
   mouseX: 0,
   mouseY: 0,
   atira: false,
   desenhar: function (ctx) {
-    // ctx.beginPath();
-    // ctx.moveTo(this.posX + 150, this.posY + 30);
-    // ctx.lineTo(ex.value, ey.value);
-    // ctx.stroke();
-    // desenho da imagem
     ctx.drawImage(
       (() => {
         let imagem = new Image();

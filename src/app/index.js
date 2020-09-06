@@ -8,6 +8,7 @@ import randomNumber from "./Funcionalidades/randomNumber.js";
 import cenario from "./Animacoes/cenario.js";
 import rato from "./Animacoes/rato.js";
 import { fabricaAldeao } from "./Animacoes/fabricaAldeao.js";
+import { fabricaInimigo } from "./Animacoes/fabricaInimigo.js";
 audio();
 
 const closeBtn = document.getElementById("start-btn");
@@ -32,6 +33,9 @@ function executar() {
 function desenhar() {
   // ordem de desenho cenario, personagem, rato
   cenario.desenhar(ctx);
+  for (var i = 0; i < inimigos.length; i++) {
+    inimigos[i].desenhar(ctx, cenario, rato);
+  }
   rato.desenhar(ctx);
   for (var i = 0; i < aldeaos.length; i++) {
     aldeaos[i].desenhar(ctx, cenario, rato);
@@ -46,6 +50,13 @@ for (var i = 0; i < quantidadeAldeaos; i++) {
       randomNumber(cenario.sceneW, cenario.Width),
       randomNumber(400, 550)
     )
+  );
+}
+let inimigos = [];
+let quantidadeInimigos = (cenario.Width / cenario.sceneW) * 3;
+for (var i = 0; i < quantidadeInimigos; i++) {
+  inimigos.push(
+    fabricaInimigo(randomNumber(cenario.sceneW, cenario.Width), 350)
   );
 }
 // isto é para sabermos onde o mouse está e onde clickou
