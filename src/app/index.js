@@ -45,7 +45,7 @@ function desenhar() {
 }
 // executar roda a primeira função que vai chamar outras funçoes e vai pedir a requestAnimationFrame
 let aldeaos = [];
-let quantidadeAldeaos = (cenario.Width / cenario.sceneW) * 15; // 100 aldeaos por cada frame
+let quantidadeAldeaos = (cenario.Width / cenario.sceneW) * 10; // 100 aldeaos por cada frame
 for (var i = 0; i < quantidadeAldeaos; i++) {
   aldeaos.push(
     fabricaAldeao(
@@ -57,9 +57,7 @@ for (var i = 0; i < quantidadeAldeaos; i++) {
 let inimigos = [];
 let quantidadeInimigos = (cenario.Width / cenario.sceneW) * 1;
 for (var i = 0; i < quantidadeInimigos; i++) {
-  inimigos.push(
-    fabricaInimigo(randomNumber(cenario.sceneW, cenario.Width), 350)
-  );
+  inimigos.push(fabricaInimigo(cenario.sceneW + i * 800, 350));
 }
 // isto é para sabermos onde o mouse está e onde clickou
 

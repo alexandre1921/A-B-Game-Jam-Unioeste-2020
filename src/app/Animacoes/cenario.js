@@ -9,7 +9,7 @@ export default {
     // é desenhado uma forma apartir dessas coordenadas, cada coordenada dessa é um ponto da forma geométrica
     ctx.fillRect(0, 0, 1280, 720);
   },
-  Width: 128000, // largura da imagem
+  Width: 25600, // largura da imagem
   Height: 720, // altura da imagem
   sceneW: 1280, // largura do que nos queremos mostra(ou seja tamanho da tela)
   sceneH: 720, // largura do que nos queremos
