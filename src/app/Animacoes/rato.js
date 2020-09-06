@@ -14,17 +14,39 @@ export default {
   linha: 0,
   coluna: 0,
   posX: 200,
-  posY: 600,
+  posY: 550,
   currentTick: 0,
   ticks: 8,
   pulando: false,
-  chao: 600,
+  chao: 550,
   alturaPulo: 150,
   forcaPulo: 15,
   gravidade,
   mouseX: 0,
   mouseY: 0,
+  atira: false,
   desenhar: function (ctx) {
+    // ctx.beginPath();
+    // ctx.moveTo(this.posX + 150, this.posY + 30);
+    // ctx.lineTo(ex.value, ey.value);
+    // ctx.stroke();
+    // desenho da imagem
+    ctx.drawImage(
+      (() => {
+        let imagem = new Image();
+        imagem.src = "../assets/img/cross.png";
+        return imagem;
+      })(),
+      0,
+      0,
+      128,
+      128,
+      ex.value - 64 * 0.5,
+      ey.value - 64 * 0.5,
+      128 * 0.5,
+      128 * 0.5
+    );
+
     if (this.pulando == true) {
       this.posY -= this.forcaPulo;
       if (this.posY <= this.chao - this.alturaPulo) {
@@ -62,35 +84,9 @@ export default {
       this.currentTick++; // incremento o tick
     }
   },
-  ratoMira: function () {
-    // desenho da trajetoria da pulga
-    ctx.beginPath();
-    ctx.moveTo(rato.posX + 150, rato.posY + 30);
-    ctx.lineTo(
-      document.getElementById("x").value,
-      document.getElementById("y").value
-    );
-    ctx.stroke();
-    // desenho da imagem
-    ctx.drawImage(
-      (() => {
-        let imagem = new Image();
-        imagem.src = "../assets/img/cross.png";
-        return imagem;
-      })(),
-      0,
-      0,
-      128,
-      128,
-      document.getElementById("x").value - 64 * 0.5,
-      document.getElementById("y").value - 64 * 0.5,
-      128 * 0.5,
-      128 * 0.5
-    );
-  },
 
   // vai ser implementado ainda a movimentação do rato
-  eventListener: function () {
+  eventListener: function (aldeaos) {
     window.addEventListener("keydown", (evt) => {
       switch (evt.keyCode) {
         case 32 /*seta para esquerda*/:
@@ -103,13 +99,22 @@ export default {
     window.addEventListener("mousemove", function (e) {
       // ao mover o mouse faça
       // temos acesso ao y e x coordenadas do mouse
-      document.getElementById("x").value = e.clientX;
-      document.getElementById("y").value = e.clientY;
+      ex.value = e.clientX;
+      ey.value = e.clientY;
       //   console.log(e.clientY, e.clientX);
     });
     window.addEventListener("click", (e) => {
-      document.getElementById("xClick").value = e.clientX;
-      document.getElementById("yClick").value = e.clientY;
+      for (var i = 0; i < aldeaos.length; i++) {
+        if (
+          e.clientX > aldeaos[i].posX + aldeaos[i].frameW * 0.7 &&
+          e.clientY > aldeaos[i].posY + aldeaos[i].frameH * 0.3 &&
+          e.clientX < aldeaos[i].posX + aldeaos[i].frameW * 1.4 &&
+          e.clientY < aldeaos[i].posY + aldeaos[i].frameH * 1.8
+        ) {
+          aldeaos[i].drop = true;
+          aldeaos[i].coluna = aldeaos[i].frameW;
+        }
+      }
     });
   },
 };

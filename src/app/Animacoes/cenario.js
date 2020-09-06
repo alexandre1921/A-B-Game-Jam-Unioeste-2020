@@ -1,3 +1,4 @@
+import { mapaVelocidade } from "../Funcionalidades/TheWorld.js";
 export default {
   // limpa a tela desenhando um quadrado branco do tamanho da tela
   limpaTela: function (ctx) {
@@ -16,10 +17,10 @@ export default {
   posHor: 0, // pos horizontal onde começa a ser mostrado
   posX: 0, // coordenada X onde colocar imagem
   posY: 0, // coordenada Y onde colocar imagem
-  velocity: 5,
+  mapaVelocidade,
   desenhar: function (ctx) {
-    if (this.posVer < this.Width - this.velocity - this.sceneW)
-      this.posVer += this.velocity;
+    if (this.posVer < this.Width - this.mapaVelocidade - this.sceneW)
+      this.posVer += this.mapaVelocidade;
     ctx.drawImage(
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem

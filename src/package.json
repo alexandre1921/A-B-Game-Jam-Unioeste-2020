@@ -8,7 +8,7 @@
   },
   "window": {
     "title": "Ratatouillevil",
-    "icon": "assets/icon.png",
+    "icon": "assets/img/icone.png",
     "toolbar": true,
     "width": 1280,
     "height": 720,
