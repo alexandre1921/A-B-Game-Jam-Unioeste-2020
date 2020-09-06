@@ -57,11 +57,12 @@ body {
 /*Botão de pausa*/
 .pause-btn {
   position: absolute;
-  top: 75px;
+  height: 55px;
+  width: 147px;
+  top: 40px;
   right: 33px;
   cursor: pointer;
   border: 0;
-  padding: 20px 50px;
   background: transparent url("../assets/Asset\ 31.svg") center no-repeat;
 }
 
@@ -74,9 +75,10 @@ body {
 .tutorial-btn {
   cursor: pointer;
   border: 0;
-  padding: 20px 50px;
+  height: 55px;
+  width: 147px;
   position: absolute;
-  top: 27px;
+  top: 108px;
   right: 33px;
   background: transparent url("../assets/Asset\ 81.svg") center no-repeat;
 }
