@@ -17,6 +17,8 @@ const pauseBtn = document.getElementById("pause");
 const tutorial = document.getElementById("tutorial");
 const tutorialBtn = document.getElementById("tutorial-btn");
 const tutorialClose = document.getElementById("close-btn");
+const historia = document.getElementById("historia");
+const contHistoria = document.getElementById("conteudo-historia");
 
 let animationFrame;
 
@@ -66,6 +68,8 @@ rato.eventListener(aldeaos);
 /* esconde o menu quando clica no botão start*/
 closeBtn.addEventListener("click", () => {
   menu.classList.add("hidden");
+  historia.classList.add("show");
+  contHistoria.classList.add("show");
 });
 menu.disabled = true;
 /*Mostra o menu ao pausarmos o jogo*/
@@ -95,3 +99,5 @@ tutorialClose.addEventListener("click", () =>
   tutorial.classList.remove("hidden")
 );
 tutorialClose.addEventListener("click", () => menu.classList.add("show"));
+
+document.querySelector("#main > .jogo > .tutorial").remove();
