@@ -59,7 +59,7 @@ body {
   position: absolute;
   height: 55px;
   width: 147px;
-  top: 40px;
+  top: 108px;
   right: 33px;
   cursor: pointer;
   border: 0;
@@ -74,13 +74,14 @@ body {
 
 /*Botão do tutorial*/
 .tutorial-btn {
+  position: absolute;
   cursor: pointer;
   border: 0;
   height: 55px;
   width: 147px;
-  position: absolute;
-  top: 108px;
+  top: 40px;
   right: 33px;
+
   background: transparent url("../assets/Asset\ 81.svg") center no-repeat;
 }
 
@@ -189,10 +190,14 @@ body {
 
 .historia.show {
   opacity: 1;
-  transition: opacity 3s ease-in;
+  transition: opacity 1s ease-in;
   transform: translateY(0);
 }
-
+.historia.hidden {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  transform: translateY(0);
+}
 .conteudo-historia {
   margin-top: 70px;
   display: flex;
@@ -210,7 +215,7 @@ body {
 
 .conteudo-historia.show {
   transform: translateY(0);
-  transition: transform 10s ease-in-out;
+  transition: transform 1s ease-in-out;
 }
 
 .imagem-historia {

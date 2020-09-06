@@ -1,2 +1,2 @@
-export const gravidade = 10,
-  mapaVelocidade = 5;
+export const gravidade = 15,
+  mapaVelocidade = 8;

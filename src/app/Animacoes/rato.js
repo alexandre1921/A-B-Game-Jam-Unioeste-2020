@@ -25,6 +25,13 @@ export default {
   mouseX: 0,
   mouseY: 0,
   atira: false,
+  audioFx: (() => {
+    let audioFx = document.querySelector("#rato-fx");
+    audioFx.src = "../assets/audio/RatoAndando.mp3";
+    audioFx.loop = true;
+    audioFx.volume = 0.2;
+    return audioFx;
+  })(),
   desenhar: function (ctx) {
     ctx.drawImage(
       (() => {
@@ -85,7 +92,13 @@ export default {
     window.addEventListener("keydown", (evt) => {
       switch (evt.keyCode) {
         case 32 /*seta para esquerda*/:
-          if (this.posY >= this.chao) this.pulando = true;
+          if (this.posY >= this.chao) {
+            this.audioFx.src = "../assets/audio/PuloDeVerdade.mp3";
+            this.audioFx.loop = false;
+            this.audioFx.volume = 0.2;
+            this.audioFx.play();
+            this.pulando = true;
+          }
           break;
       }
     });

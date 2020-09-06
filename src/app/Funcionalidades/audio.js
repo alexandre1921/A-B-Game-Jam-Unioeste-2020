@@ -1,6 +1,7 @@
 export default () => {
-  const audio = document.createElement("audio");
-  audio.src = "../assets/audio/Ratatouillevil.wav";
-  audio.loop = true;
-  audio.play();
+  const music = document.querySelector("#gameMusic");
+  music.src = "../assets/audio/Ratatouillevil.wav";
+  music.loop = true;
+  music.volume = 0.2;
+  music.play();
 };

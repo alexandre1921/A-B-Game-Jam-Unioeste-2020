@@ -55,7 +55,7 @@ for (var i = 0; i < quantidadeAldeaos; i++) {
   );
 }
 let inimigos = [];
-let quantidadeInimigos = (cenario.Width / cenario.sceneW) * 3;
+let quantidadeInimigos = (cenario.Width / cenario.sceneW) * 1;
 for (var i = 0; i < quantidadeInimigos; i++) {
   inimigos.push(
     fabricaInimigo(randomNumber(cenario.sceneW, cenario.Width), 350)
@@ -80,9 +80,7 @@ pauseBtn.addEventListener("click", () => {
 });
 /*Volta a esconder o menu quando clicado em start novamente*/
 closeBtn.addEventListener("click", () => {
-  if (menu.disabled) animationFrame = window.requestAnimationFrame(executar);
   menu.classList.remove("show");
-  menu.disabled = false;
 });
 
 function desenharInicio() {
@@ -100,4 +98,33 @@ tutorialClose.addEventListener("click", () =>
 );
 tutorialClose.addEventListener("click", () => menu.classList.add("show"));
 
-document.querySelector("#main > .jogo > .tutorial").remove();
+startGame.addEventListener("click", () => {
+  if (menu.disabled) animationFrame = window.requestAnimationFrame(executar);
+  menu.disabled = false;
+  historia.classList.add("hidden");
+  pauseBtn.style.display = "";
+  new Promise((r) => setTimeout(r, 1000));
+  historia.style.display = "none";
+  closeBtn.addEventListener("click", () => {
+    if (rato.audioFx.paused) {
+      rato.audioFx.play();
+    } else {
+      rato.audioFx.pause();
+    }
+    if (menu.disabled) animationFrame = window.requestAnimationFrame(executar);
+    menu.disabled = false;
+  });
+});
+const gameMusic = document.querySelector("#gameMusic"),
+  soundBtn = document.querySelector("#sound-btn");
+soundBtn.addEventListener("click", () => {
+  if (gameMusic.paused) {
+    soundBtn.style.background =
+      'url("../assets/Asset 47.svg") center no-repeat';
+    gameMusic.play();
+  } else {
+    soundBtn.style.background =
+      'url("../assets/Asset 46.svg") center no-repeat';
+    gameMusic.pause();
+  }
+});

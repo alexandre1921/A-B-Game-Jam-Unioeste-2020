@@ -31,7 +31,7 @@
 
       <button class="sound-btn" id="sound-btn"></button>
 
-      <button class="pause-btn" id="pause"></button>
+      <button class="pause-btn" id="pause" style="display: none"></button>
 
       <button class="tutorial-btn" id="tutorial-btn"></button>
 
@@ -65,10 +65,13 @@
           <img src="../assets/Rato (2).svg" alt="" />
         </div>
 
-        <button class="continuar-btn">clique para continuar...</button>
+        <button id="startGame" class="continuar-btn">
+          clique para continuar...
+        </button>
       </div>
     </div>
-
+    <audio id="gameMusic"></audio>
+    <audio id="rato-fx"></audio>
     <script src="../app/index.js" type="module"></script>
   </body>
 </html>
