@@ -14,11 +14,11 @@ export default {
   linha: 0,
   coluna: 0,
   posX: 200,
-  posY: 550,
+  posY: 430,
   currentTick: 0,
   ticks: 8,
   pulando: false,
-  chao: 550,
+  chao: 430,
   alturaPulo: 150,
   forcaPulo: 15,
   gravidade,
@@ -93,7 +93,6 @@ export default {
           if (this.posY >= this.chao) this.pulando = true;
           break;
       }
-      console.log(evt.keyCode);
     });
 
     window.addEventListener("mousemove", function (e) {
@@ -101,7 +100,6 @@ export default {
       // temos acesso ao y e x coordenadas do mouse
       ex.value = e.clientX;
       ey.value = e.clientY;
-      //   console.log(e.clientY, e.clientX);
     });
     window.addEventListener("click", (e) => {
       for (var i = 0; i < aldeaos.length; i++) {
@@ -113,6 +111,7 @@ export default {
         ) {
           aldeaos[i].drop = true;
           aldeaos[i].coluna = aldeaos[i].frameW;
+          break;
         }
       }
     });

@@ -47,7 +47,6 @@ export const fabricaQueijo = (posX, posY) => {
           this.pegouY = true;
         } else this.posY -= this.velocidade;
       }
-      console.log(this.pegouY, this.pegouX);
       if (!(this.pegouY !== false && this.pegouX !== false)) {
         ctx.drawImage(
           this.img,

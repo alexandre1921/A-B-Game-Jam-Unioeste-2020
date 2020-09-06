@@ -43,7 +43,7 @@ body {
   top: 30px;
   left: 30px;
   cursor: pointer;
-  border:0;
+  border: 0;
   padding: 50px 50px;
   background: transparent url("../assets/Asset\ 31.svg") center no-repeat;
 }
@@ -76,9 +76,8 @@ body {
   left: 65px;
 }
 
-
 .menu.hidden {
-  transform: translateY(-1000px);
+  transform: translateY(-530px);
 }
 
 .menu.show {

@@ -11,7 +11,6 @@ export default {
       ) {
       } else {
       }
-      //   console.log(e.clientY, e.clientX);
     });
     canvas.addEventListener("click", (e) => {
       // ao clickar faça

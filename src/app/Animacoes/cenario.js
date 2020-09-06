@@ -24,10 +24,6 @@ export default {
     console.log(this.posCW);
     if (this.posVer < this.Width - this.mapaVelocidade - this.sceneW)
       this.posVer += this.mapaVelocidade;
-    console.log(
-      this.posVer - this.sceneW * (this.posCW - 1),
-      this.posVer - this.sceneW * this.posCW
-    );
     ctx.drawImage(
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
@@ -59,6 +55,19 @@ export default {
       this.posY,
       this.sceneW,
       this.sceneH
+    );
+  },
+  desenharMenu: function (ctx) {
+    console.log("desenhado");
+    ctx.drawImage(
+      (() => {
+        // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
+        let imagem = new Image();
+        imagem.src = "../assets/img/backgroundMenu.png";
+        return imagem;
+      })(),
+      0,
+      0
     );
   },
 };

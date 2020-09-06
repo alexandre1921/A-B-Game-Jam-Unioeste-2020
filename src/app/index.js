@@ -16,13 +16,15 @@ const sound = document.getElementById("sound-on");
 const soundOff = document.getElementById("sound-off");
 const pauseBtn = document.getElementById("pause");
 
+let animationFrame;
+
 // criando canvas e o contexto
 let { canvas, ctx } = canvasCtx();
 function executar() {
   // desenhar faz os desenhos na ordem certa, por exemplo, o personagem tem que ser desenhado depois do cenário
   desenhar();
   // requestAnimationFrame é responsável pela atualização dos quadros
-  window.requestAnimationFrame(executar);
+  animationFrame = window.requestAnimationFrame(executar);
   // faz a animação do rato andando
   rato.andar();
 }
@@ -36,18 +38,40 @@ function desenhar() {
 }
 // executar roda a primeira função que vai chamar outras funçoes e vai pedir a requestAnimationFrame
 let aldeaos = [];
-let quantidadeAldeaos = 90;
+let quantidadeAldeaos = (cenario.Width / cenario.sceneW) * 15; // 100 aldeaos por cada frame
 for (var i = 0; i < quantidadeAldeaos; i++) {
   aldeaos.push(
-    fabricaAldeao(randomNumber(1280, 11520), randomNumber(470, 550))
+    fabricaAldeao(
+      randomNumber(cenario.sceneW, cenario.Width),
+      randomNumber(400, 550)
+    )
   );
 }
-executar();
 // isto é para sabermos onde o mouse está e onde clickou
+
 mouse.eventListener(canvas);
 rato.eventListener(aldeaos);
+closeBtn.addEventListener("click", () => {
+  menu.classList.add("hidden");
+});
+sound.addEventListener("click", () => {
+  sound.classList.replace("soundOff");
+});
+menu.disabled = true;
+pauseBtn.addEventListener("click", () => {
+  cancelAnimationFrame(animationFrame);
+  menu.classList.add("show");
+  menu.disabled = true;
+});
+closeBtn.addEventListener("click", () => {
+  if (menu.disabled) animationFrame = window.requestAnimationFrame(executar);
+  menu.classList.remove("show");
+  menu.disabled = false;
+});
 
-closeBtn.addEventListener("click", () => menu.classList.add("hidden"));
-sound.addEventListener("click", () => sound.classList.replace("soundOff"));
-pauseBtn.addEventListener("click", () => menu.classList.add("show"));
-closeBtn.addEventListener("click", () => menu.classList.remove("show"));
+function desenharInicio() {
+  cenario.desenharMenu(ctx);
+  window.requestAnimationFrame(desenharInicio);
+}
+
+desenharInicio();
