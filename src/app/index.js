@@ -12,9 +12,10 @@ audio();
 
 const closeBtn = document.getElementById("start-btn");
 const menu = document.getElementById("menu");
-const sound = document.getElementById("sound-on");
-const soundOff = document.getElementById("sound-off");
 const pauseBtn = document.getElementById("pause");
+const tutorial = document.getElementById("tutorial");
+const tutorialBtn = document.getElementById("tutorial-btn");
+const tutorialClose = document.getElementById("close-btn");
 
 let animationFrame;
 
@@ -51,18 +52,18 @@ for (var i = 0; i < quantidadeAldeaos; i++) {
 
 mouse.eventListener(canvas);
 rato.eventListener(aldeaos);
+/* esconde o menu quando clica no botão start*/
 closeBtn.addEventListener("click", () => {
   menu.classList.add("hidden");
 });
-sound.addEventListener("click", () => {
-  sound.classList.replace("soundOff");
-});
 menu.disabled = true;
+/*Mostra o menu ao pausarmos o jogo*/
 pauseBtn.addEventListener("click", () => {
   cancelAnimationFrame(animationFrame);
   menu.classList.add("show");
   menu.disabled = true;
 });
+/*Volta a esconder o menu quando clicado em start novamente*/
 closeBtn.addEventListener("click", () => {
   if (menu.disabled) animationFrame = window.requestAnimationFrame(executar);
   menu.classList.remove("show");
@@ -75,3 +76,11 @@ function desenharInicio() {
 }
 
 desenharInicio();
+
+/*efeito do botão tutorial para aparecer e sumir junto do menu*/
+tutorialBtn.addEventListener("click", () => menu.classList.add("hidden"));
+tutorialBtn.addEventListener("click", () => tutorial.classList.add("hidden"));
+tutorialClose.addEventListener("click", () =>
+  tutorial.classList.remove("hidden")
+);
+tutorialClose.addEventListener("click", () => menu.classList.add("show"));
