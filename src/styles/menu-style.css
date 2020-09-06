@@ -12,10 +12,19 @@ body {
   margin: 0;
 }
 
+/*ícone de som*/
+.icone {
+  position: absolute;
+  top: 30px;
+  left: 65px;
+}
+
+/*Logo do game*/
 .logo {
   height: 15vw;
 }
 
+/*Botão start*/
 .btn {
   background: url("../assets/Asset\ 18.png") center no-repeat;
   cursor: pointer;
@@ -26,18 +35,23 @@ body {
   margin-right: 25px;
 }
 
+/*Efeito do botão start*/
 .btn:focus {
   outline: 0;
 }
 
+/*Efeito ao passar o mouse em cima do botão start*/
 .btn:hover {
   background: transparent url("../assets/Asset\ 17.png") center no-repeat;
 }
 
+/*Efeito ao botão estar clicado*/
 .btn:active {
   transform: scale(0.98);
 }
 
+
+/*Botão de pausa*/
 .pause-btn {
   position: absolute;
   top: 30px;
@@ -48,10 +62,23 @@ body {
   background: transparent url("../assets/Asset\ 31.svg") center no-repeat;
 }
 
+/*Efeito ao passar o mouse em cima do botão de pausa*/
 .pause-btn:hover {
   background: transparent url("../assets/Asset\ 32.svg") center no-repeat;
 }
 
+/*Botão do tutorial*/
+.tutorial-btn {
+  cursor: pointer;
+  border:0;
+  padding: 50px 50px;
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  background: transparent url("../assets/Asset\ 31.svg") center no-repeat;
+}
+
+/*Menu do game*/
 .menu {
   display: flex;
   text-align: center;
@@ -60,8 +87,7 @@ body {
   flex-direction: column;
   position: absolute;
   top: 14vw;
-  left: 37vw;
-  color: darkblue;
+  left: 40vw;
   min-height: 50vh;
   width: 25vw;
   padding: 20px;
@@ -70,13 +96,59 @@ body {
   transition: transform 1s ease-in-out;
 }
 
-.icone {
+/*Tutorial do game*/
+.tutorial {
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
   position: absolute;
-  top: 30px;
-  left: 65px;
+  top: 14vw;
+  left: 25vw;
+  border-radius: 20px;
+  background-color: rgba(174, 204, 238, 0.726);
+  box-shadow: #ccc 5px 5px 14px;
+  color: sienna;
+  font-weight: bolder;
+  transform: translateY(1000px);
+  transition: transform 1s ease-in-out;
+}
+
+/*Imagens do tutorial*/
+.tutorial img {
+  width: 15%;
+}
+
+/*tecla W do tutorial*/
+.w {
+  padding-bottom: 30px;
+}
+
+.teclas {
+  padding-left: 230px;
+}
+
+.mouse {
+  width: 15vw;
+  height: 11vh;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  cursor: pointer;
+  padding: 17px;
+  border:0;
+  background: transparent url("../assets/times-solid.svg") center no-repeat;
 }
 
 
+/*Efeito de transição no menu*/
 .menu.hidden {
   transform: translateY(-1000px);
 }
@@ -84,3 +156,9 @@ body {
 .menu.show {
   transform: translateY(-110px);
 }
+
+/*Efeito de transição no tutorial*/
+.tutorial.hidden {
+  transform: translateY(0);
+}
+

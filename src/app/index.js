@@ -9,9 +9,10 @@ import rato from "./Animacoes/rato.js";
 
 const closeBtn = document.getElementById("start-btn");
 const menu = document.getElementById("menu");
-const sound = document.getElementById("sound-on");
-const soundOff = document.getElementById("sound-off");
 const pauseBtn = document.getElementById("pause");
+const tutorial = document.getElementById("tutorial");
+const tutorialBtn = document.getElementById("tutorial-btn");
+const tutorialClose = document.getElementById("close-btn");
 
 // criando canvas e o contexto
 let { canvas, ctx } = canvasCtx();
@@ -33,7 +34,18 @@ executar();
 // isto é para sabermos onde o mouse está e onde clickou
 mouse.eventListener(canvas);
 
+/* esconde o menu quando clica no botão start*/
 closeBtn.addEventListener("click", () => menu.classList.add("hidden"));
-sound.addEventListener("click", () => sound.classList.replace("soundOff"));
+
+/*Mostra o menu ao pausarmos o jogo*/
 pauseBtn.addEventListener("click", () => menu.classList.add("show"));
+
+/*Volta a esconder o menu quando clicado em start novamente*/
 closeBtn.addEventListener("click", () => menu.classList.remove("show"));
+
+/**/
+tutorialBtn.addEventListener("click", () => menu.classList.add("hidden"));
+tutorialBtn.addEventListener("click", () => tutorial.classList.add("hidden"));
+tutorialClose.addEventListener("click", () => tutorial.classList.remove("hidden"));
+tutorialClose.addEventListener("click", () => menu.classList.add("show"));
+
