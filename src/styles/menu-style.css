@@ -176,7 +176,7 @@ body {
   transform: translateY(0);
 }
 
-.historia {
+.historia, .morte {
   position: absolute;
   background-color: black;
   height: 100%;
@@ -188,7 +188,7 @@ body {
   transition: transform 0.1s ease-in-out;
 }
 
-.historia.show {
+.historia.show, .morte.show {
   opacity: 1;
   transition: opacity 1s ease-in;
   transform: translateY(0);
