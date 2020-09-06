@@ -98,12 +98,15 @@ function desenharInicio() {
 desenharInicio();
 
 /*efeito do botão tutorial para aparecer e sumir junto do menu*/
-tutorialBtn.addEventListener("click", () => menu.classList.add("hidden"));
-tutorialBtn.addEventListener("click", () => tutorial.classList.add("hidden"));
-tutorialClose.addEventListener("click", () =>
-  tutorial.classList.remove("hidden")
-);
-tutorialClose.addEventListener("click", () => menu.classList.add("show"));
+tutorialBtn.addEventListener("click", () => {
+  menu.classList.add("hidden");
+  tutorial.classList.add("hidden");
+});
+
+tutorialClose.addEventListener("click", () => {
+  tutorial.classList.remove("hidden");
+  menu.classList.remove("hidden");
+});
 
 startGame.addEventListener("click", () => {
   if (menu.disabled) animationFrame = window.requestAnimationFrame(executar);
