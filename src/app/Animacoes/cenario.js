@@ -28,7 +28,7 @@ export default {
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
         let imagem = new Image();
-        imagem.src = "../assets/img/cena2.jpeg";
+        imagem.src = "../assets/img/cena1.jpeg";
         return imagem;
       })(),
       this.posVer - this.sceneW * (this.posCW + 1),
@@ -44,7 +44,7 @@ export default {
       (() => {
         // faço isso pra instanciar uma imagem e retonar ela, já que o canvas obriga a fazer com um objeto imagem
         let imagem = new Image();
-        imagem.src = "../assets/img/cena2.jpeg";
+        imagem.src = "../assets/img/cena1.jpeg";
         return imagem;
       })(),
       this.posVer - this.sceneW * this.posCW,

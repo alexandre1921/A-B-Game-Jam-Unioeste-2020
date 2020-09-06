@@ -30,6 +30,8 @@ export default {
     audioFx.src = "../assets/audio/RatoAndando.mp3";
     audioFx.loop = true;
     audioFx.volume = 0.2;
+    audioFx.play();
+    audioFx.pause();
     return audioFx;
   })(),
   desenhar: function (ctx) {
@@ -56,6 +58,12 @@ export default {
       }
     } else if (this.posY < this.chao) {
       this.posY += this.gravidade;
+    } else {
+      if (this.audioFx.paused) {
+        this.audioFx.src = "../assets/audio/RatoAndando.mp3";
+        this.audioFx.loop = true;
+        this.audioFx.play();
+      }
     }
     ctx.drawImage(
       (() => {
@@ -110,6 +118,10 @@ export default {
       ey.value = e.clientY;
     });
     window.addEventListener("click", (e) => {
+      let pulgaFx = document.createElement("audio");
+      pulgaFx.src = "../assets/audio/Pulga.mp3";
+      pulgaFx.volume = 0.1;
+      pulgaFx.play();
       for (var i = 0; i < aldeaos.length; i++) {
         if (
           e.clientX > aldeaos[i].posX + aldeaos[i].frameW * 0.7 &&

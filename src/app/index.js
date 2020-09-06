@@ -74,6 +74,13 @@ closeBtn.addEventListener("click", () => {
 menu.disabled = true;
 /*Mostra o menu ao pausarmos o jogo*/
 pauseBtn.addEventListener("click", () => {
+  if (rato.audioFx.paused) {
+    audioFx.src = "../assets/audio/RatoAndando.mp3";
+    audioFx.loop = true;
+    rato.audioFx.play();
+  } else {
+    rato.audioFx.pause();
+  }
   cancelAnimationFrame(animationFrame);
   menu.classList.add("show");
   menu.disabled = true;
@@ -105,8 +112,17 @@ startGame.addEventListener("click", () => {
   pauseBtn.style.display = "";
   new Promise((r) => setTimeout(r, 1000));
   historia.style.display = "none";
+  if (rato.audioFx.paused) {
+    rato.audioFx.src = "../assets/audio/RatoAndando.mp3";
+    rato.audioFx.loop = true;
+    rato.audioFx.play();
+  } else {
+    rato.audioFx.pause();
+  }
   closeBtn.addEventListener("click", () => {
     if (rato.audioFx.paused) {
+      rato.audioFx.src = "../assets/audio/RatoAndando.mp3";
+      rato.audioFx.loop = true;
       rato.audioFx.play();
     } else {
       rato.audioFx.pause();
