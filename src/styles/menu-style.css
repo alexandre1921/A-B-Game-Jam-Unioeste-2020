@@ -73,10 +73,16 @@ body {
   border:0;
   padding: 50px 50px;
   position: absolute;
-  top: 30px;
-  right: 60px;
-  background: transparent url("../assets/Asset\ 31.svg") center no-repeat;
+  top: 27px;
+  right: 33px;
+  background: transparent url("../assets/Asset\ 81.svg") center no-repeat;
 }
+
+/*Efeito ao passar o mouse em cima do botão do tutorial*/
+.tutorial-btn:hover {
+  background: transparent url("../assets/Asset\ 82.svg") center no-repeat;
+}
+
 
 /*Menu do game*/
 .menu {
@@ -127,15 +133,18 @@ body {
   padding-bottom: 30px;
 }
 
+/*teclas do tutorial*/
 .teclas {
   padding-left: 230px;
 }
 
+/*mouse tutorial*/
 .mouse {
   width: 15vw;
   height: 11vh;
 }
 
+/*botão de fechar o tutorial*/
 .close {
   position: absolute;
   top: 10px;
