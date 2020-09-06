@@ -12,7 +12,7 @@ export const fabricaQueijo = (posX, posY) => {
     currentTick: 0,
     ticks: 4,
     mapaVelocidade,
-    velocidade: 10,
+    velocidade: mapaVelocidade * 2,
     pegouY: false,
     pegouX: false,
     img: (() => {
