@@ -176,7 +176,7 @@ body {
   transform: translateY(0);
 }
 
-.historia, .morte {
+.historia, .morte, .win {
   position: absolute;
   background-color: black;
   height: 100%;
@@ -188,17 +188,17 @@ body {
   transition: transform 0.1s ease-in-out;
 }
 
-.historia.show, .morte.show {
+.historia.show, .morte.show, .win.show {
   opacity: 1;
   transition: opacity 1s ease-in;
   transform: translateY(0);
 }
-.historia.hidden, .morte.hidden {
+.historia.hidden, .morte.hidden, .win.hidden {
   opacity: 0;
   transition: opacity 1s ease-out;
   transform: translateY(0);
 }
-.conteudo-historia, .conteudo-morte {
+.conteudo-historia, .conteudo-morte, .conteudo-win {
   margin-top: 70px;
   display: flex;
   flex-wrap: wrap;
@@ -213,17 +213,17 @@ body {
   transform: translateY(100px);
 }
 
-.conteudo-historia.show, .conteudo-morte.show {
+.conteudo-historia.show, .conteudo-morte.show, .conteudo-win.show {
   transform: translateY(0);
   transition: transform 1s ease-in-out;
 }
 
-.imagem-historia, .imagem-morte {
+.imagem-historia, .imagem-morte, .imagem-win {
   height: 20vh;
   width: 15vw;
 }
 
-.imagem-historia img, .imagem-morte img {
+.imagem-historia img, .imagem-morte img, .imagem-morte img {
   height: 20vh;
 }
 
