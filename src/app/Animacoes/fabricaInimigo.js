@@ -66,11 +66,13 @@ export const fabricaInimigo = (posX, posY) => {
         this.posY - this.frameH * 2 < rato.posY &&
         this.posY + this.frameH * 2 > rato.posY
       ) {
-        if (rato.vidas == 0) {
+        if (rato.vidas < 1) {
+          console.log(rato.vidas);
           this.audioFxM.volume = 0;
+        } else {
+          this.audioFxM.play();
+          this.img.src = "../assets/img/medicoAtacando.png";
         }
-        this.audioFxM.play();
-        this.img.src = "../assets/img/medicoAtacando.png";
       }
       ctx.drawImage(
         this.img,

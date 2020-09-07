@@ -48,10 +48,11 @@ export default {
 
       this.img.src = "../assets/img/ratoMorto.png";
       new Promise((r) => setTimeout(r, 1000));
-      historia.style.display = "";
-      historia.classList.remove("hidden");
-      historia.classList.add("show");
-      historia.addEventListener("click", () => {
+
+      morte.style.display = "";
+      morte.classList.remove("hidden");
+      morte.classList.add("show");
+      restartGame.addEventListener("click", () => {
         document.location.reload(true);
       });
     }
